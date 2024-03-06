@@ -1,0 +1,7 @@
+-e git+https://github.com/dantaeyoung/APiHole@50a5bfcf6fb922c86e154b8ba81b4b708c61392f#egg=APiHole
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.6
+python-dotenv==1.0.1
+requests==2.31.0
+urllib3==2.2.1
