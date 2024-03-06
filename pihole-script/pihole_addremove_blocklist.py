@@ -39,7 +39,6 @@ def read_blocklist(filename):
 if __name__ == '__main__':
 # Instantiate the ArgumentParser
     parser = argparse.ArgumentParser(description='Process command line arguments')
-
 # Add the arguments
     parser.add_argument('--blocklist', type=str, default='blocklist.txt', help='Name of the blocklist file')
     parser.add_argument('--add', action='store_true', help='Add blocklist')
