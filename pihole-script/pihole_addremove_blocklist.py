@@ -15,7 +15,6 @@ piholelogger = logging.getLogger('PiHole')
 piholelogger.setLevel(logging.WARNING)
 
 PiHoleAPI = os.getenv('PIHOLE_API_KEY')
-PiIP = 'pi.hole'
 
 
 def generate_subdomain_regex(domain):
@@ -40,12 +39,14 @@ if __name__ == '__main__':
 # Instantiate the ArgumentParser
     parser = argparse.ArgumentParser(description='Process command line arguments')
 # Add the arguments
+    parser.add_argument('--host', type=str, default='pi.hole', help='Host/IP of pi-hole')
     parser.add_argument('--blocklist', type=str, default='blocklist.txt', help='Name of the blocklist file')
     parser.add_argument('--add', action='store_true', help='Add blocklist')
     parser.add_argument('--remove', action='store_true', help='Remove blocklist')
 
 # Parse the arguments and store them in the 'args' variable
     args = parser.parse_args()
+    pihole_host = args.host
 
 # Check if --add or --remove argument is provided and set the 'add_blocklist' variable accordingly
     if args.add:
@@ -55,7 +56,7 @@ if __name__ == '__main__':
     else:
         action = "ADD"
 
-    status = PiHole.GetStatus(PiIP, PiHoleAPI)
+    status = PiHole.GetStatus(pihole_host, PiHoleAPI)
 
     if status is None:
         print("ERROR CONNECTING TO PIHOLE")
@@ -67,9 +68,9 @@ if __name__ == '__main__':
 
     for rb in regex_blocklist:
         if action == "ADD":
-            result = PiHole.AddRegexBlock(PiIP,PiHoleAPI, rb)
+            result = PiHole.AddRegexBlock(pihole_host,PiHoleAPI, rb)
         if action == "REMOVE":
-            result = PiHole.RemoveRegexBlock(PiIP,PiHoleAPI, rb)
+            result = PiHole.RemoveRegexBlock(pihole_host,PiHoleAPI, rb)
         print(f'{action}\t--\t{rb}\t\t\t\t{"SUCCESS" if result else "FAIL"}')
 
 
