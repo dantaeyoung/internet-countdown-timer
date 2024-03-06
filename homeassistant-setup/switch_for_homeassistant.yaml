@@ -1,0 +1,20 @@
+
+rest_command:
+  pihole_disable:
+    url: "http://pi.hole/admin/api.php?disable&auth=https://pi.hole/admin/api.php?disable&auth=APIKEYGOESHERE"
+    method: GET
+  pihole_enable:
+    url: "http://pi.hole/admin/api.php?disable&auth=https://pi.hole/admin/api.php?disable&auth=APIKEYGOESHERE"
+    method: GET
+
+# Define a switch entity to trigger the REST command
+switch:
+  - platform: template
+    switches:
+      pihole_disable_switch:
+        value_template: "{{ is_state('switch.pihole_disable_switch', 'on') }}"
+        turn_on:
+          service: rest_command.pihole_enable
+        turn_off:
+          service: rest_command.pihole_disable
+
