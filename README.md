@@ -15,7 +15,6 @@ _5 minutes._
 
 When the timer finishes, the LED turns back on, and the focused internet is present again.
 
-
 ## Intention
 
 `thumb  -------> legs`
@@ -36,16 +35,6 @@ By elongating the action, impulse is transformed into intent.
 
 In other words: You can't _twitch_ your way into distraction; by a distraction necessitating a walk across the room, the room affords more _intent_ in being online.
 
-
-## Details
-
-This works at a network / DNS level; the unfocus timer allows/blocks traffic to 'distracting' sites. Phones, computers, alike are all affected.
-
-
-## Ingredients
-
-Created with:
-[Pi-hole](https://pi-hole.net/) + [Home Assistant](https://www.home-assistant.io/) + [ESPHome](https://esphome.io/) + an ESP32.
-
-
-
+---
+More information here:
+# https://dantaeyoung.com/projects/unfocus-timer
