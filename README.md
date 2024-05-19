@@ -1,6 +1,9 @@
 # Unfocus Timer
 A physical timer switch to momentarily allow the unfocused internet.
 
+More information here:
+# https://dantaeyoung.com/projects/unfocus-timer
+
 ![unfocus-timer.gif](unfocus-timer.gif)
 
 Turn the countdown timer on. The focused internet LED turns off, and the unfocused internet floods in. 
